@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.ui;
+package com.momoandroid.lebsy.view;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.ui.main.SectionsPagerAdapter;
+import com.momoandroid.lebsy.view.main.SectionsPagerAdapter;
 
 public class AuthenticationActivity extends AppCompatActivity {
 

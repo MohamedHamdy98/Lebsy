@@ -9,14 +9,15 @@
             type="com.momoandroid.lebsy.models.Users" />
         <variable
             name="onClick"
-            type="com.momoandroid.lebsy.ui.main.LogInFragment.HandlerLogIn" />
+            type="com.momoandroid.lebsy.view.main.LogInFragment.HandlerLogIn" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/loginFragment"
-        tools:context="ui.main.LogInFragment">
+        android:background="#F5F6F8"
+        tools:context="view.main.LogInFragment">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

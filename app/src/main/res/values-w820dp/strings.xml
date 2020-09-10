@@ -4,4 +4,5 @@
     <string name="enterEmail">Please! Enter your email!</string>
     <string name="enterPass">Please! Enter your password!</string>
     <string name="passMore6">Password less than 6 letters</string>
+    <string name="EmailSent">We have sent you instructions to reset your password!</string>
 </resources>

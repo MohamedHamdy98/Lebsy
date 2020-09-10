@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.ui.main;
+package com.momoandroid.lebsy.view.main;
 
 import android.content.Context;
 

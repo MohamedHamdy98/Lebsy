@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.ui;
+package com.momoandroid.lebsy.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,12 +7,8 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityMainBinding;
-import com.momoandroid.lebsy.ui.main.LogInFragment;
-import com.momoandroid.lebsy.ui.main.SignUpFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.ui.ui.notifications;
+package com.momoandroid.lebsy.view.ui.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

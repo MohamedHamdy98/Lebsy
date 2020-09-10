@@ -9,7 +9,7 @@
             type="com.momoandroid.lebsy.models.Users" />
         <variable
             name="onClick"
-            type="com.momoandroid.lebsy.ui.main.SignUpFragment.HandlerSignUp" />
+            type="com.momoandroid.lebsy.view.main.SignUpFragment.HandlerSignUp" />
     </data>
 
     <FrameLayout
@@ -18,7 +18,7 @@
         android:layout_gravity="center_horizontal"
         android:background="#F5F6F8"
         android:id="@+id/signFragment"
-        tools:context=".ui.main.SignUpFragment">
+        tools:context=".view.main.SignUpFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"

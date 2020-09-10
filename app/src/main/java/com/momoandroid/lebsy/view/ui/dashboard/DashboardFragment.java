@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.ui.ui.dashboard;
+package com.momoandroid.lebsy.view.ui.dashboard;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
