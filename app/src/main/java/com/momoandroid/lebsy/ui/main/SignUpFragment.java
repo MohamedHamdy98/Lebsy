@@ -1,23 +1,18 @@
 package com.momoandroid.lebsy.ui.main;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.FragmentSignUpBinding;
 import com.momoandroid.lebsy.models.Users;
@@ -37,7 +32,8 @@ public class SignUpFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         users = new Users();
         binding.setUser(users);
-        handlerSignUp = new HandlerSignUp(binding.editTextSignUpEmail, binding.editTextSignUpPass, binding.editTextSignUpName);
+        handlerSignUp = new HandlerSignUp(binding.editTextSignUpEmail,
+                binding.editTextSignUpPass, binding.editTextSignUpName);
         binding.setOnClick(handlerSignUp);
         return root;
     }
@@ -50,7 +46,6 @@ public class SignUpFragment extends Fragment {
             this.editTextPassword = editTextPassword;
             this.editTextName = editTextName;
         }
-
         public void signUp(View view) {
             final String email = editTextEmail.getText().toString();
             final String password = editTextPassword.getText().toString();
@@ -82,7 +77,6 @@ public class SignUpFragment extends Fragment {
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-
                                 if (task.isSuccessful()) {
                                     binding.signUpProgressBar.setVisibility(View.GONE);
                                     Toast.makeText(getActivity(), "Authentication success.",

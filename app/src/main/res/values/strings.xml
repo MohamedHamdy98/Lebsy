@@ -10,4 +10,8 @@
     <string name="enterEmail">Please! Enter your email!</string>
     <string name="enterPass">Please! Enter your password!</string>
     <string name="passMore6">Password less than 6 letters</string>
+    <string name="title_activity_categories">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

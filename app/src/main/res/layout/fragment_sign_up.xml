@@ -17,7 +17,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:background="#F5F6F8"
-        tools:context=".ui.SignUpFragment">
+        android:id="@+id/signFragment"
+        tools:context=".ui.main.SignUpFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
