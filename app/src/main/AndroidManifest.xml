@@ -18,7 +18,6 @@
             android:name=".view.AuthenticationActivity"
             android:label="@string/title_activity_authentication"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.LogInActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
