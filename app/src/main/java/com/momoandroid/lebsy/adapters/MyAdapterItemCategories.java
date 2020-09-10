@@ -1,9 +1,7 @@
 package com.momoandroid.lebsy.adapters;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -17,8 +15,12 @@ import com.momoandroid.lebsy.models.ItemCategories;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerItemCategories extends RecyclerView.Adapter<RecyclerItemCategories.ViewHolder> {
+public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemCategories.ViewHolder> {
     private List<ItemCategories> modelArrayList = new ArrayList<>();
+
+    public MyAdapterItemCategories(List<ItemCategories> modelArrayList) {
+        this.modelArrayList = modelArrayList;
+    }
 
     @NonNull
     @Override
