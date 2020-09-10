@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enterName">Please! Enter your name!</string>
+    <string name="enterEmail">Please! Enter your email!</string>
+    <string name="enterPass">Please! Enter your password!</string>
+    <string name="passMore6">Password less than 6 letters</string>
+</resources>

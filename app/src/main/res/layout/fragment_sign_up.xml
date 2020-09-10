@@ -30,28 +30,48 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
                 android:src="@drawable/ic_shopping" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card"
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_below="@id/image_logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image_logo"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:elevation="18sp"
-                app:cardBackgroundColor="#FFF"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="18sp">
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textField"
+                    android:id="@+id/textInputLayout_name"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="User Name"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:errorEnabled="true"
+                    android:textColorHint="#646567"
+                    app:endIconMode="clear_text"
+                    app:hintTextColor="#FF6969">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_signUp_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textSize="16sp"
+                        android:text="@{user.name}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_email"
                     style="@style/AuthTextInputLayoutStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    app:errorEnabled="true"
                     android:textColorHint="#646567"
                     app:endIconMode="clear_text"
                     app:hintTextColor="#FF6969">
@@ -65,26 +85,14 @@
                         android:text="@{user.email}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/card"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="18sp"
-                app:cardBackgroundColor="#FFF"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="18sp">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_pass"
                     style="@style/AuthTextInputLayoutStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
+                    app:errorEnabled="true"
                     android:textColorHint="#646567"
                     app:hintTextColor="#FF6969"
                     app:passwordToggleEnabled="true">
@@ -98,22 +106,20 @@
                         android:text="@{user.password}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardb"
+                android:layout_below="@id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cardp"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:elevation="18sp"
                 app:cardBackgroundColor="@color/colorHint"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="18sp">
-
                 <com.balysv.materialripple.MaterialRippleLayout
                     style="@style/RippleStyleGrey"
                     android:layout_width="match_parent"

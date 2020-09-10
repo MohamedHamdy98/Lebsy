@@ -37,35 +37,47 @@ public class SignUpFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         users = new Users();
         binding.setUser(users);
-        handlerSignUp = new HandlerSignUp(binding.editTextSignUpEmail, binding.editTextSignUpPass);
+        handlerSignUp = new HandlerSignUp(binding.editTextSignUpEmail, binding.editTextSignUpPass, binding.editTextSignUpName);
         binding.setOnClick(handlerSignUp);
         return root;
     }
 
     public class HandlerSignUp {
-        private EditText editTextEmail, editTextPassword;
+        private EditText editTextEmail, editTextPassword, editTextName;
 
-        public HandlerSignUp(EditText editTextEmail, EditText editTextPassword) {
+        public HandlerSignUp(EditText editTextEmail, EditText editTextPassword, EditText editTextName) {
             this.editTextEmail = editTextEmail;
             this.editTextPassword = editTextPassword;
+            this.editTextName = editTextName;
         }
 
         public void signUp(View view) {
             final String email = editTextEmail.getText().toString();
             final String password = editTextPassword.getText().toString();
-            binding.signUpProgressBar.setVisibility(View.VISIBLE);
+            final String name = editTextName.getText().toString();
+            if (name.isEmpty()) {
+                binding.textInputLayoutName.setError(getString(R.string.enterName));
+                return;
+            } else {
+                binding.textInputLayoutName.setError(null);
+            }
             if (email.isEmpty()) {
-                Toast.makeText(getActivity(), "Please! Enter your email!", Toast.LENGTH_SHORT).show();
-                binding.signUpProgressBar.setVisibility(View.GONE);
+                binding.textInputLayoutEmail.setError(getString(R.string.enterEmail));
+                return;
+            } else {
+                binding.textInputLayoutEmail.setError(null);
             }
             if (password.isEmpty()) {
-                Toast.makeText(getActivity(), "Please! Enter your password!", Toast.LENGTH_SHORT).show();
+                binding.textInputLayoutPass.setError(getString(R.string.enterPass));
                 binding.signUpProgressBar.setVisibility(View.GONE);
             }
-            if (email.isEmpty()) {
-                Toast.makeText(getActivity(), "Please! Enter your email!", Toast.LENGTH_SHORT).show();
-                binding.signUpProgressBar.setVisibility(View.GONE);
-            } else {
+            else {
+                binding.textInputLayoutPass.setError(null);
+            } if (password.length() < 6) {
+                binding.textInputLayoutPass.setError(getString(R.string.passMore6));
+            }
+             else {
+                binding.signUpProgressBar.setVisibility(View.VISIBLE);
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override

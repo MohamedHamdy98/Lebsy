@@ -6,4 +6,8 @@
     <string name="forgotPass">Forgot Password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enterName">Please! Enter your name!</string>
+    <string name="enterEmail">Please! Enter your email!</string>
+    <string name="enterPass">Please! Enter your password!</string>
+    <string name="passMore6">Password less than 6 letters</string>
 </resources>
