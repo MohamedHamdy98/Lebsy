@@ -6,12 +6,28 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityMainBinding;
+import com.momoandroid.lebsy.view.main.SignUpFragment;
+
+import java.util.Observable;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Completable;
+import io.reactivex.CompletableObserver;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +42,6 @@ public class MainActivity extends AppCompatActivity {
         animation.setOneShot(false);
         binding.imageSplash.setImageDrawable(animation);
         animation.start();
-        startActivity(new Intent(MainActivity.this, AuthenticationActivity.class));
+        startActivity(new Intent(MainActivity.this, CategoriesActivity.class));
     }
 }

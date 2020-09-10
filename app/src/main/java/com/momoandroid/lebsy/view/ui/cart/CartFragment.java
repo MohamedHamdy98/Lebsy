@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.ui.dashboard;
+package com.momoandroid.lebsy.view.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,17 +15,17 @@ import androidx.lifecycle.ViewModelProviders;
 import com.momoandroid.lebsy.R;
 
 
-public class DashboardFragment extends Fragment {
+public class CartFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private CartViewModel cartViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        cartViewModel =
+                ViewModelProviders.of(this).get(CartViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_cart, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        cartViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
