@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view;
+package com.momoandroid.lebsy.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
         animation.setOneShot(false);
         binding.imageSplash.setImageDrawable(animation);
         animation.start();
-        startActivity(new Intent(MainActivity.this,AuthenticationActivity.class));
+        startActivity(new Intent(MainActivity.this, AuthenticationActivity.class));
     }
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.ForgotPassFragment">
+    tools:context=".ui.main.ForgotPassFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

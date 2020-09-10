@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.ui.main;
+package com.momoandroid.lebsy.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

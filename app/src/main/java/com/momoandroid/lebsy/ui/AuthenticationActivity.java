@@ -1,18 +1,14 @@
-package com.momoandroid.lebsy.view;
+package com.momoandroid.lebsy.ui;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.ui.main.SectionsPagerAdapter;
+import com.momoandroid.lebsy.ui.main.SectionsPagerAdapter;
 
 public class AuthenticationActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.ui.main;
+package com.momoandroid.lebsy.ui.main;
 
 import android.content.Context;
 
@@ -9,9 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.ui.ForgotPassFragment;
-import com.momoandroid.lebsy.view.ui.LogInFragment;
-import com.momoandroid.lebsy.view.ui.SignUpFragment;
 
 
 /**

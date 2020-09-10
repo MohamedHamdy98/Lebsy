@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view;
+package com.momoandroid.lebsy.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
