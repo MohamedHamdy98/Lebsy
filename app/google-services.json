@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "97386293715",
+    "firebase_url": "https://lebsy-c0ba2.firebaseio.com",
+    "project_id": "lebsy-c0ba2",
+    "storage_bucket": "lebsy-c0ba2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97386293715:android:6564a1cdd19df092bca726",
+        "android_client_info": {
+          "package_name": "com.momoandroid.lebsy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97386293715-07fi5qs8urgsa6vhh1k8kfjs5l44d83e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.momoandroid.lebsy",
+            "certificate_hash": "eb8b507f44bea88cae2e1dc402b19317619a28bf"
+          }
+        },
+        {
+          "client_id": "97386293715-872rnpb74cijf4ql28su965gkqpkfrg9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN83zajLx0pB3w0TW1LTjF_6Vuv_q4I54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97386293715-872rnpb74cijf4ql28su965gkqpkfrg9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
