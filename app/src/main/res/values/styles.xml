@@ -20,6 +20,7 @@
     </style>
     <style name="AuthTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/colorHint</item>
+        <item name="boxBackgroundColor">#FFF</item>
         <item name="boxStrokeWidth">2dp</item>
     </style>
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
