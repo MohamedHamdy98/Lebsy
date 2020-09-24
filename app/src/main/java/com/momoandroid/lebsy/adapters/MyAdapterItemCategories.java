@@ -1,5 +1,6 @@
 package com.momoandroid.lebsy.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -8,16 +9,18 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.RecyclerviewItemCategoriesBinding;
 import com.momoandroid.lebsy.models.ItemCategories;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemCategories.ViewHolder> {
     private List<ItemCategories> modelArrayList = new ArrayList<>();
-
+    private Context context;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +32,12 @@ public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemC
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ItemCategories itemCategories = modelArrayList.get(position);
+        if (itemCategories.getImageItem().equals("default")) {
+            holder.binding.imageViewShoesItemCategories.setImageResource(R.drawable.ic_shopping);
+        } else {
+            Glide.with(context.getApplicationContext()).load(itemCategories.getImageItem())
+                    .into(holder.binding.imageViewShoesItemCategories);
+        }
         holder.binding.setItem(itemCategories);
     }
 

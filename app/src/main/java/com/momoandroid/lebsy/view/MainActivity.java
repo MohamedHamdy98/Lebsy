@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityMainBinding;
@@ -44,4 +45,5 @@ public class MainActivity extends AppCompatActivity {
         animation.start();
         startActivity(new Intent(MainActivity.this, CategoriesActivity.class));
     }
+
 }
