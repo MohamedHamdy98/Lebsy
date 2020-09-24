@@ -18,10 +18,6 @@ import java.util.List;
 public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemCategories.ViewHolder> {
     private List<ItemCategories> modelArrayList = new ArrayList<>();
 
-    public MyAdapterItemCategories(List<ItemCategories> modelArrayList) {
-        this.modelArrayList = modelArrayList;
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

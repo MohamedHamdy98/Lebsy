@@ -9,13 +9,13 @@ import com.momoandroid.lebsy.BR;
 
 public class ItemCategories extends BaseObservable {
     private String nameItem;
-    private Drawable imageItem;
+    private String imageItem;
     private String priceItem;
 
     public ItemCategories() {
     }
 
-    public ItemCategories(String nameItem, Drawable imageItem, String priceItem) {
+    public ItemCategories(String nameItem, String imageItem, String priceItem) {
         this.nameItem = nameItem;
         this.imageItem = imageItem;
         this.priceItem = priceItem;
@@ -30,11 +30,11 @@ public class ItemCategories extends BaseObservable {
         notifyPropertyChanged(BR.nameItem);
     }
     @Bindable
-    public Drawable getImageItem() {
+    public String getImageItem() {
         return imageItem;
     }
 
-    public void setImageItem(Drawable imageItem) {
+    public void setImageItem(String imageItem) {
         this.imageItem = imageItem;
         notifyPropertyChanged(BR.imageItem);
     }

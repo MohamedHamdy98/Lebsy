@@ -18,10 +18,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="12sp"
+            android:elevation="20sp"
             app:cardBackgroundColor="#fff"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="12sp">
+            app:cardCornerRadius="8dp"
+            app:cardElevation="20sp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:background="#fff"

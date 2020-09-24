@@ -1,49 +1,57 @@
 package com.momoandroid.lebsy.view.ui.home;
 
-import androidx.annotation.MainThread;
-import androidx.lifecycle.LiveData;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.momoandroid.lebsy.models.ItemCategories;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import io.reactivex.Completable;
-import io.reactivex.CompletableObserver;
-import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleObserver;
-import io.reactivex.SingleOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
 public class HomeViewModel extends ViewModel {
+
     public MutableLiveData<List<ItemCategories>> mutableLiveData = new MutableLiveData<>();
-    private List<ItemCategories> itemCategories = new ArrayList<>();
+    private static HomeViewModel instance;
+    private List<ItemCategories> categoriesArrayList = new ArrayList<>();
 
-    public Single<List<ItemCategories>> getDataItemCategories() {
-        Single<List<ItemCategories>> single1 = Single.just(itemCategories)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        single1.subscribe(new SingleObserver<List<ItemCategories>>() {
+   public static HomeViewModel getInstance(){
+       if (instance == null){
+           synchronized (HomeViewModel.class){
+               if (instance == null){
+                   instance = new HomeViewModel();
+               }
+           }
+       }
+       return instance;
+   }
+
+    public MutableLiveData<List<ItemCategories>> getDataFromFirebase() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("clothes");
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSubscribe(Disposable d) {
-
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    categoriesArrayList.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        ItemCategories itemCategories = dataSnapshot.getValue(ItemCategories.class);
+                        categoriesArrayList.add(itemCategories);
+                        mutableLiveData.setValue(categoriesArrayList);
+                    }
+                }
             }
-
             @Override
-            public void onSuccess(List<ItemCategories> itemCategories) {
-                mutableLiveData.setValue(itemCategories);
-            }
-
-            @Override
-            public void onError(Throwable e) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-        return single1;
+        return mutableLiveData;
     }
 }
