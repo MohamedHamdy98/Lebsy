@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityMainBinding;
-import com.momoandroid.lebsy.view.ui.CategoriesActivity;
+import com.momoandroid.lebsy.view.uiBottomNavigation.CategoriesActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

@@ -12,17 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activitiesCategory.ShirtActivity"
+            android:name=".view.activitiesCategory.uiShirts.main.ShirtActivity"
             android:label="@string/title_activity_shirt"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".view.activitiesCategory.FurnitureActivity" />
-        <activity android:name=".view.activitiesCategory.BeautyActivity" />
-        <activity android:name=".view.activitiesCategory.ShoesActivity" />
         <activity
-            android:name=".view.ui.CategoriesActivity"
+            android:name=".view.uiBottomNavigation.CategoriesActivity"
             android:label="@string/title_activity_categories" />
         <activity
-            android:name=".view.main.AuthenticationActivity"
+            android:name=".view.mainAuth.AuthenticationActivity"
             android:label="@string/title_activity_authentication"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.MainActivity">

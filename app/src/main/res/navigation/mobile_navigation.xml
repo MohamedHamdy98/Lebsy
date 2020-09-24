@@ -7,29 +7,29 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.momoandroid.lebsy.view.ui.home.HomeFragment"
+        android:name="com.momoandroid.lebsy.view.uiBottomNavigation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.momoandroid.lebsy.view.ui.cart.CartFragment"
+        android:name="com.momoandroid.lebsy.view.uiBottomNavigation.cart.CartFragment"
         android:label="Cart"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.momoandroid.lebsy.view.ui.notifications.NotificationsFragment"
+        android:name="com.momoandroid.lebsy.view.uiBottomNavigation.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.momoandroid.lebsy.view.ui.chat.ChatFragment"
+        android:name="com.momoandroid.lebsy.view.uiBottomNavigation.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.momoandroid.lebsy.view.ui.profile.ProfileFragment"
+        android:name="com.momoandroid.lebsy.view.uiBottomNavigation.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

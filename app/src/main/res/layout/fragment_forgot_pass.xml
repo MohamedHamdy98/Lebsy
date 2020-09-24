@@ -9,14 +9,14 @@
             type="com.momoandroid.lebsy.models.Users" />
         <variable
             name="onClick"
-            type="com.momoandroid.lebsy.view.main.ForgotPassFragment.HandlerForgotPass" />
+            type="com.momoandroid.lebsy.view.mainAuth.ForgotPassFragment.HandlerForgotPass" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F6F8"
-        tools:context=".view.main.ForgotPassFragment">
+        tools:context=".view.mainAuth.ForgotPassFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"

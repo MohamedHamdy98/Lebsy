@@ -6,7 +6,7 @@
     <data>
         <variable
             name="onClick"
-            type="com.momoandroid.lebsy.view.ui.home.HomeFragment.HomeHandler" />
+            type="com.momoandroid.lebsy.view.uiBottomNavigation.home.HomeFragment.HomeHandler" />
     </data>
 
     <LinearLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="#F5F6F8"
         android:orientation="vertical"
-        tools:context=".view.ui.home.HomeFragment">
+        tools:context=".view.uiBottomNavigation.home.HomeFragment">
 
         <LinearLayout
             android:layout_marginTop="10dp"
