@@ -15,4 +15,15 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="EmailSent">We have sent you instructions to reset your password!</string>
+    <string name="title_activity_shirt">ShirtActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="Tshirts">T-Shirts</string>
+    <string name="shirts">Shirts</string>
+    <string name="pants">Pants and Jeans</string>
+    <string name="socks">Socks</string>
+    <string name="underware">UnderWare</string>
+    <string name="jackest">Jackest</string>
+    <string name="coats">Coats</string>
+    <string name="sweaters">Sweaters</string>
 </resources>

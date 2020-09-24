@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.FragmentLogInBinding;
 import com.momoandroid.lebsy.models.Users;
-import com.momoandroid.lebsy.view.CategoriesActivity;
+import com.momoandroid.lebsy.view.ui.CategoriesActivity;
 
 public class LogInFragment extends Fragment {
     private FragmentLogInBinding binding;

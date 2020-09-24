@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view;
+package com.momoandroid.lebsy.view.ui;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;

@@ -11,15 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activitiesCategory.FurnitureActivity"></activity>
+        <activity
+            android:name=".view.activitiesCategory.ShirtActivity"
+            android:label="@string/title_activity_shirt"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".view.activitiesCategory.FurnitureActivity" />
         <activity android:name=".view.activitiesCategory.BeautyActivity" />
         <activity android:name=".view.activitiesCategory.ShoesActivity" />
-        <activity android:name=".view.activitiesCategory.ShirtsActivity" />
         <activity
-            android:name=".view.CategoriesActivity"
+            android:name=".view.ui.CategoriesActivity"
             android:label="@string/title_activity_categories" />
         <activity
-            android:name=".view.AuthenticationActivity"
+            android:name=".view.main.AuthenticationActivity"
             android:label="@string/title_activity_authentication"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.MainActivity">

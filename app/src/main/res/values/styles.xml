@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.NoActionbar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -21,20 +22,24 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="MyHintStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/colorHint</item>
     </style>
+
     <style name="AuthTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/colorHint</item>
         <item name="boxBackgroundColor">#FFF</item>
         <item name="boxStrokeWidth">2dp</item>
     </style>
+
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">18sp</item>
         <item name="textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/cairo_semibold</item>
     </style>
+
     <style name="RippleStyleGrey">
         <item name="mrl_rippleOverlay">true</item>
         <item name="mrl_rippleColor">#19191B</item>

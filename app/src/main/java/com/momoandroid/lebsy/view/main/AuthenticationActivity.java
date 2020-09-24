@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view;
+package com.momoandroid.lebsy.view.main;
 
 import android.os.Bundle;
 

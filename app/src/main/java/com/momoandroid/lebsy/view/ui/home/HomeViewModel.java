@@ -1,6 +1,5 @@
 package com.momoandroid.lebsy.view.ui.home;
 
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -13,21 +12,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.momoandroid.lebsy.models.ItemCategories;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
-
 import static android.content.ContentValues.TAG;
 
 public class HomeViewModel extends ViewModel {
