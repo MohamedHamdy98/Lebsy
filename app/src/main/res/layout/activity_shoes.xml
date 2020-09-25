@@ -19,6 +19,7 @@
             app:tabTextAppearance="@style/CustomTabText"
             app:tabTextColor="#D4D6DC"
             app:tabSelectedTextColor="#fff"
+            app:tabIndicatorColor="#fff"
             android:background="#FF6969"
             app:tabMode="fixed" />
     </com.google.android.material.appbar.AppBarLayout>

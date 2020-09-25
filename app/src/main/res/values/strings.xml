@@ -31,4 +31,15 @@
     <string name="man">Men</string>
     <string name="woman">Women</string>
     <string name="title_activity_beauty">BeautyActivity</string>
+    <string name="title_activity_furniture">FurnitureActivity</string>
+    <string name="livingRoom">LivingRoom</string>
+    <string name="Bedrom">Bedrom</string>
+    <string name="smallSpace">Small Space</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="Entryway">Entryway</string>
+    <string name="Bathroom">Bathroom</string>
+    <string name="Kids">Kids</string>
+    <string name="HomeOffice">Home Office</string>
+    <string name="DiningRoom">Dining Room</string>
+    <string name="patio">Patio</string>
 </resources>
