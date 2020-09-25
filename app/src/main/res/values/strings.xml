@@ -33,7 +33,7 @@
     <string name="title_activity_beauty">BeautyActivity</string>
     <string name="title_activity_furniture">FurnitureActivity</string>
     <string name="livingRoom">LivingRoom</string>
-    <string name="Bedrom">Bedrom</string>
+    <string name="Bedroom">Bedroom</string>
     <string name="smallSpace">Small Space</string>
     <string name="kitchen">Kitchen</string>
     <string name="Entryway">Entryway</string>

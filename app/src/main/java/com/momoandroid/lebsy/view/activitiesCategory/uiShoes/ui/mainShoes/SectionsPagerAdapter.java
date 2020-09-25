@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.childrenShoes.ChildrenFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.manShoes.ManShoesFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.womanShoes.WomanShoesFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.childrenShoes.ChildrenFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.manShoes.ManShoesFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.womanShoes.WomanShoesFragment;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

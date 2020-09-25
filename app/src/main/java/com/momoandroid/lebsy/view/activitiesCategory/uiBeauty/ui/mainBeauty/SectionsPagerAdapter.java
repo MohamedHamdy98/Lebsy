@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.man.ManBeautyFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.woman.WomanBeautyFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.man.ManBeautyFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.woman.WomanBeautyFragment;
 
 
 /**
