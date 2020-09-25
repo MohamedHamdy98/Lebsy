@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.womanShoes;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.manShoes;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import com.momoandroid.lebsy.R;
 
-public class WomanFragment extends Fragment {
+public class ManShoesFragment extends Fragment {
 
-    private WomanViewModel mViewModel;
+    private ManShoesViewModel mViewModel;
 
-    public static WomanFragment newInstance() {
-        return new WomanFragment();
+    public static ManShoesFragment newInstance() {
+        return new ManShoesFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.woman_fragment, container, false);
+        return inflater.inflate(R.layout.man_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(WomanViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ManShoesViewModel.class);
         // TODO: Use the ViewModel
     }
 

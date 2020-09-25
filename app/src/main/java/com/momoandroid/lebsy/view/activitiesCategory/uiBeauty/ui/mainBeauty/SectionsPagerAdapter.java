@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.mainShoes;
+package com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.mainBeauty;
 
 import android.content.Context;
 
@@ -9,15 +9,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.childrenShoes.ChildrenFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.manShoes.ManShoesFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.womanShoes.WomanShoesFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.man.ManBeautyFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.woman.WomanBeautyFragment;
 
+
+/**
+ * A [FragmentPagerAdapter] that returns a fragment corresponding to
+ * one of the sections/tabs/pages.
+ */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{
-            R.string.children, R.string.man,R.string.woman};
+            R.string.man, R.string.woman};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -28,15 +32,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        switch (position) {
+        switch (position){
             case 0:
-                fragment = new ManShoesFragment();
+                fragment = new ManBeautyFragment();
                 break;
             case 1:
-                fragment = new ChildrenFragment();
-                break;
-            case 2:
-                fragment = new WomanShoesFragment();
+                fragment = new WomanBeautyFragment();
                 break;
         }
         return fragment;
@@ -50,7 +51,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
-        return 3;
+        // Show 2 total pages.
+        return 2;
     }
 }

@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.activitiesCategory.uiBeauty.ui.mainBeauty.BeautyActivity"
+            android:label="@string/title_activity_beauty"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".view.activitiesCategory.uiShoes.ui.mainShoes.ShoesActivity"
             android:label="@string/title_activity_shoes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activitiesCategory.uiShirts.mainShirts.ShirtActivity"
             android:label="@string/title_activity_shirt"

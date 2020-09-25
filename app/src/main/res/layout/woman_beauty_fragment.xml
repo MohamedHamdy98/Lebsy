@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activitiesCategory.uiShoes.ui.manShoes.ManShoesFragment">
+    tools:context=".view.activitiesCategory.uiBeauty.ui.woman.WomanBeautyFragment">
 
     <TextView
         android:layout_width="match_parent"

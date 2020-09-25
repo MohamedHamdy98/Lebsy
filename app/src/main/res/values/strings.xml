@@ -30,4 +30,5 @@
     <string name="children">Children</string>
     <string name="man">Men</string>
     <string name="woman">Women</string>
+    <string name="title_activity_beauty">BeautyActivity</string>
 </resources>
