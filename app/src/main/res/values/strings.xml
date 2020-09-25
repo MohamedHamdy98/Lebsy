@@ -26,4 +26,8 @@
     <string name="jackest">Jackest</string>
     <string name="coats">Coats</string>
     <string name="sweaters">Sweaters</string>
+    <string name="title_activity_shoes">ShoesActivity</string>
+    <string name="children">Children</string>
+    <string name="man">Men</string>
+    <string name="woman">Women</string>
 </resources>

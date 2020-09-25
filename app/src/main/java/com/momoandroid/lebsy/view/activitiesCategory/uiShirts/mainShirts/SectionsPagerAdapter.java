@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiShirts.main;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShirts.mainShirts;
 
 import android.content.Context;
 

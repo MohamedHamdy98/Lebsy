@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiShirts.main;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShirts.mainShirts;
 
 import android.os.Bundle;
 
@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShirts.main.SectionsPagerAdapter;
 
 public class ShirtActivity extends AppCompatActivity {
 

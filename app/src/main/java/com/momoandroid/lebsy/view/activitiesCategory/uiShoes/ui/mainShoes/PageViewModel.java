@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiShirts.main;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.ui.mainShoes;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
