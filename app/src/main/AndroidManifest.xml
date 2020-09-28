@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.ItemActivity"></activity>
         <activity
             android:name=".view.activitiesCategory.uiFurniture.ui.mainFurniture.FurnitureActivity"
             android:label="@string/title_activity_furniture"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activitiesCategory.uiBeauty.ui.mainBeauty.BeautyActivity"
             android:label="@string/title_activity_beauty"

@@ -1,7 +1,9 @@
 package com.momoandroid.lebsy.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.RecyclerviewItemCategoriesBinding;
 import com.momoandroid.lebsy.models.ItemCategories;
+import com.momoandroid.lebsy.view.ItemActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,6 +24,7 @@ import java.util.List;
 public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemCategories.ViewHolder> {
     private List<ItemCategories> modelArrayList = new ArrayList<>();
     private Context context;
+    int index = -1;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,11 +37,22 @@ public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemC
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ItemCategories itemCategories = modelArrayList.get(position);
         if (itemCategories.getImageItem().equals("default")) {
-            holder.binding.imageViewShoesItemCategories.setImageResource(R.drawable.ic_shopping);
+            holder.binding.imageViewShoesItemCategories.setImageResource(R.drawable.mee);
         } else {
-            Glide.with(context.getApplicationContext()).load(itemCategories.getImageItem())
-                    .into(holder.binding.imageViewShoesItemCategories);
+            Picasso.get().load(itemCategories.getImageItem()).into(holder.binding.imageViewShoesItemCategories);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index = position;
+                notifyDataSetChanged();
+                Intent intent = new Intent(v.getContext(), ItemActivity.class);
+                intent.putExtra("name",modelArrayList.get(position).getNameItem());
+                intent.putExtra("price",modelArrayList.get(position).getPriceItem());
+                intent.putExtra("image",modelArrayList.get(position).getImageItem());
+                v.getContext().startActivity(intent);
+            }
+        });
         holder.binding.setItem(itemCategories);
     }
 
