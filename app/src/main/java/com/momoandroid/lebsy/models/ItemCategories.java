@@ -13,17 +13,19 @@ public class ItemCategories extends BaseObservable {
     private String priceItem;
     private String sizeItem;
     private String numberItem;
+    private String colorItem;
 
     public ItemCategories() {
     }
 
 
-    public ItemCategories(String nameItem, String imageItem, String priceItem, String sizeItem, String numberItem) {
+    public ItemCategories(String nameItem, String imageItem, String priceItem, String sizeItem, String numberItem,String colorItem) {
         this.nameItem = nameItem;
         this.imageItem = imageItem;
         this.priceItem = priceItem;
         this.sizeItem = sizeItem;
         this.numberItem = numberItem;
+        this.colorItem = colorItem;
     }
 
     public ItemCategories(String nameItem, String imageItem, String priceItem) {
@@ -31,6 +33,16 @@ public class ItemCategories extends BaseObservable {
         this.imageItem = imageItem;
         this.priceItem = priceItem;
     }
+    @Bindable
+    public String getColorItem() {
+        return colorItem;
+    }
+
+    public void setColorItem(String colorItem) {
+        this.colorItem = colorItem;
+        notifyPropertyChanged(BR.colorItem);
+    }
+
     @Bindable
     public String getNumberItem() {
         return numberItem;
