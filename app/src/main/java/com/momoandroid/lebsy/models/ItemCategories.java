@@ -11,8 +11,16 @@ public class ItemCategories extends BaseObservable {
     private String nameItem;
     private String imageItem;
     private String priceItem;
+    private String sizeItem;
 
     public ItemCategories() {
+    }
+
+    public ItemCategories(String nameItem, String imageItem, String priceItem, String sizeItem) {
+        this.nameItem = nameItem;
+        this.imageItem = imageItem;
+        this.priceItem = priceItem;
+        this.sizeItem = sizeItem;
     }
 
     public ItemCategories(String nameItem, String imageItem, String priceItem) {
@@ -20,6 +28,16 @@ public class ItemCategories extends BaseObservable {
         this.imageItem = imageItem;
         this.priceItem = priceItem;
     }
+    @Bindable
+    public String getSizeItem() {
+        return sizeItem;
+    }
+
+    public void setSizeItem(String sizeItem) {
+        this.sizeItem = sizeItem;
+        notifyPropertyChanged(BR.sizeItem);
+    }
+
     @Bindable
     public String getNameItem() {
         return nameItem;
