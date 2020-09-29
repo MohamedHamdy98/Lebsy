@@ -42,4 +42,5 @@
     <string name="HomeOffice">Home Office</string>
     <string name="DiningRoom">Dining Room</string>
     <string name="patio">Patio</string>
+    <string name="todo">TODO</string>
 </resources>

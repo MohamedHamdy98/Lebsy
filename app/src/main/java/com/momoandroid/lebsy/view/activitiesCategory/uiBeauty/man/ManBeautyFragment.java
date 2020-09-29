@@ -37,6 +37,8 @@ public class ManBeautyFragment extends Fragment {
         View root = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(ManBeautyViewModel.class);
 
+
+
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference myRef = database.getReference("Beauty");
 //        ItemCategories Gym = new ItemCategories("Gym Shoes","default" ,"80$");
