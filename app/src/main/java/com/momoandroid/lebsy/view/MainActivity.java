@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityMainBinding;
+import com.momoandroid.lebsy.view.mainAuth.AuthenticationActivity;
 import com.momoandroid.lebsy.view.uiBottomNavigation.CategoriesActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         animation.setOneShot(false);
         binding.imageSplash.setImageDrawable(animation);
         animation.start();
-        startActivity(new Intent(MainActivity.this, CategoriesActivity.class));
+        startActivity(new Intent(MainActivity.this, AuthenticationActivity.class));
     }
 
 }

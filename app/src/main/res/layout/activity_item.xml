@@ -7,6 +7,9 @@
         <variable
             name="item"
             type="com.momoandroid.lebsy.models.ItemCategories"/>
+        <variable
+            name="onClick"
+            type="com.momoandroid.lebsy.view.ItemActivity.HandlerItemActivity" />
     </data>
 
     <LinearLayout
@@ -107,7 +110,7 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/button_add_size"
                     android:hint="Number Of Item!"
-                    android:text="@{item.sizeItem}"
+                    android:text="@{item.numberItem}"
                     android:padding="12dp"
                     android:textColor="#FF6969"
                     android:textSize="18sp"
@@ -211,6 +214,7 @@
                     android:textColor="#fff"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:onClick="@{onClick::addToCart}"
                     android:text="Add To Cart"
                     android:drawableRight="@drawable/ic_right_arrow"
                     android:background="@drawable/button_add_to_cart_shape"/>

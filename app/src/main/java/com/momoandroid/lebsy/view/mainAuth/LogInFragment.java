@@ -1,10 +1,13 @@
 package com.momoandroid.lebsy.view.mainAuth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ import com.momoandroid.lebsy.databinding.FragmentLogInBinding;
 import com.momoandroid.lebsy.models.Users;
 import com.momoandroid.lebsy.view.uiBottomNavigation.CategoriesActivity;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class LogInFragment extends Fragment {
     private FragmentLogInBinding binding;
     private Users users;
@@ -31,20 +36,29 @@ public class LogInFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_log_in,container,false);
         View root = binding.getRoot();
+        // keep log in
+        SharedPreferences preferences = getActivity().getSharedPreferences("keep", MODE_PRIVATE);
+        String check = preferences.getString("remember", "");
+        if (check.equals("true")) {
+            startActivity(new Intent(getActivity(), CategoriesActivity.class));
+        } else if (check.equals("false")) {
+        }
         mAuth = FirebaseAuth.getInstance();
         users = new Users();
         binding.setUser(users);
-        handlerLogIn = new HandlerLogIn(binding.editTextLogInEmail,binding.editTextLogInPass);
+        handlerLogIn = new HandlerLogIn(binding.editTextLogInEmail,binding.editTextLogInPass,binding.checkBox);
         binding.setOnClick(handlerLogIn);
+        handlerLogIn.keepLogIn();
         return root;
     }
     public class HandlerLogIn {
-        private EditText editTextEmail, editTextPassword, editTextName;
+        private EditText editTextEmail, editTextPassword;
+        private CheckBox checkBox;
 
-        public HandlerLogIn(EditText editTextEmail, EditText editTextPassword) {
+        public HandlerLogIn(EditText editTextEmail, EditText editTextPassword,CheckBox checkBox) {
             this.editTextEmail = editTextEmail;
             this.editTextPassword = editTextPassword;
-            this.editTextName = editTextName;
+            this.checkBox = checkBox;
         }
         public void signUp(View view) {
             final String email = editTextEmail.getText().toString();
@@ -87,6 +101,23 @@ public class LogInFragment extends Fragment {
                         });
             }
 
+        }
+
+        public void keepLogIn(){
+            // To keep log in
+            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (buttonView.isChecked()) {
+                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("keep", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                } else if (!buttonView.isChecked()) {
+                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("keep", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("remember", "false");
+                    editor.apply();
+                }
+            });
         }
     }
 }

@@ -15,18 +15,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.ActivityItemBinding;
+import com.momoandroid.lebsy.models.ItemCategories;
 import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.mainBeauty.SectionsPagerAdapter;
 
 import java.util.HashMap;
 
 public class ItemActivity extends AppCompatActivity {
     private ActivityItemBinding binding;
+    private HandlerItemActivity handlerItemActivity;
+    private ItemCategories itemCategories;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        binding = DataBindingUtil.setContentView(this, R.layout.activity_item);
        binding.textViewNameItemCategories.setText(getIntent().getExtras().getString("name"));
        binding.textViewPriceItemCategories.setText(getIntent().getExtras().getString("price"));
+       itemCategories = new ItemCategories();
+       binding.setItem(itemCategories);
+       handlerItemActivity = new HandlerItemActivity(binding.editTextSizeItemActivity,binding.editTextNumberItemActivity);
+       binding.setOnClick(handlerItemActivity);
     }
     public class HandlerItemActivity{
         private EditText editText_size, editText_number;
@@ -37,6 +44,8 @@ public class ItemActivity extends AppCompatActivity {
         }
 
         public void addToCart(View view){
+            String name = getIntent().getExtras().getString("name");
+            String price = getIntent().getExtras().getString("price");
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             String size = editText_size.getText().toString();
             String number = editText_number.getText().toString();
@@ -44,7 +53,9 @@ public class ItemActivity extends AppCompatActivity {
             HashMap<String,Object> hashMap = new HashMap<>();
             hashMap.put("SizeOfItem",size);
             hashMap.put("NumberOfItem",number);
-            databaseReference.child(uid).setValue(hashMap);
+            hashMap.put("NameOfItem",name);
+            hashMap.put("PriceOfItem",price);
+            databaseReference.child(uid).child(name).setValue(hashMap);
         }
     }
 }
