@@ -54,21 +54,81 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewBlackColor.setVisibility(View.GONE);
                 binding.imageViewUseblackColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseorangeColor.setVisibility(View.GONE);
+                binding.imageViewUsepinkColor.setVisibility(View.GONE);
+                binding.imageViewUsewhiteColor.setVisibility(View.GONE);
+                binding.imageViewUsegrayColor.setVisibility(View.GONE);
+                binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
+                binding.imageViewPinkColor.setVisibility(View.VISIBLE);
+                binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
+                binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 break;
             case R.id.imageView_useblack_color:
                 binding.imageViewBlackColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseblackColor.setVisibility(View.GONE);
-                binding.imageViewUseorangeColor.setVisibility(View.GONE);
                 break;
             case R.id.imageView_orange_color:
                 binding.imageViewOrangeColor.setVisibility(View.GONE);
                 binding.imageViewUseorangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseblackColor.setVisibility(View.GONE);
+                binding.imageViewUsepinkColor.setVisibility(View.GONE);
+                binding.imageViewUsewhiteColor.setVisibility(View.GONE);
+                binding.imageViewUsegrayColor.setVisibility(View.GONE);
+                binding.imageViewBlackColor.setVisibility(View.VISIBLE);
+                binding.imageViewPinkColor.setVisibility(View.VISIBLE);
+                binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
+                binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 break;
             case R.id.imageView_useorange_color:
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseorangeColor.setVisibility(View.GONE);
+                break;
+            case R.id.imageView_white_color:
+                binding.imageViewWhiteColor.setVisibility(View.GONE);
+                binding.imageViewUsewhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseblackColor.setVisibility(View.GONE);
+                binding.imageViewUsepinkColor.setVisibility(View.GONE);
+                binding.imageViewUseorangeColor.setVisibility(View.GONE);
+                binding.imageViewUsegrayColor.setVisibility(View.GONE);
+                binding.imageViewBlackColor.setVisibility(View.VISIBLE);
+                binding.imageViewPinkColor.setVisibility(View.VISIBLE);
+                binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
+                binding.imageViewGrayColor.setVisibility(View.VISIBLE);
+                break;
+            case R.id.imageView_usewhite_color:
+                binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
+                binding.imageViewUsewhiteColor.setVisibility(View.GONE);
+                break;
+            case R.id.imageView_pink_color:
+                binding.imageViewPinkColor.setVisibility(View.GONE);
+                binding.imageViewUsepinkColor.setVisibility(View.VISIBLE);
+                binding.imageViewUseblackColor.setVisibility(View.GONE);
+                binding.imageViewUsewhiteColor.setVisibility(View.GONE);
+                binding.imageViewUseorangeColor.setVisibility(View.GONE);
+                binding.imageViewUsegrayColor.setVisibility(View.GONE);
+                binding.imageViewBlackColor.setVisibility(View.VISIBLE);
+                binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
+                binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
+                binding.imageViewGrayColor.setVisibility(View.VISIBLE);
+                break;
+            case R.id.imageView_usepink_color:
+                binding.imageViewPinkColor.setVisibility(View.VISIBLE);
+                binding.imageViewUsepinkColor.setVisibility(View.GONE);
+                break;
+            case R.id.imageView_gray_color:
+                binding.imageViewGrayColor.setVisibility(View.GONE);
+                binding.imageViewUsegrayColor.setVisibility(View.VISIBLE);
+                binding.imageViewUseblackColor.setVisibility(View.GONE);
+                binding.imageViewUsewhiteColor.setVisibility(View.GONE);
+                binding.imageViewUseorangeColor.setVisibility(View.GONE);
+                binding.imageViewUsepinkColor.setVisibility(View.GONE);
+                binding.imageViewBlackColor.setVisibility(View.VISIBLE);
+                binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
+                binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
+                binding.imageViewPinkColor.setVisibility(View.VISIBLE);
+                break;
+            case R.id.imageView_usegray_color:
+                binding.imageViewGrayColor.setVisibility(View.VISIBLE);
+                binding.imageViewUsegrayColor.setVisibility(View.GONE);
                 break;
             default:
                 break;
