@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.woman;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.manShoe;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
@@ -18,22 +18,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.adapters.MyAdapterItemCategories;
-import com.momoandroid.lebsy.databinding.WomanBeautyFragmentBinding;
+import com.momoandroid.lebsy.databinding.ManFragmentBinding;
 import com.momoandroid.lebsy.models.ItemCategories;
 
-public class WomanBeautyFragment extends Fragment {
-    private WomanBeautyFragmentBinding binding;
-    private WomanBeautyViewModel mViewModel;
+public class ManShoesFragment extends Fragment {
+    private ManFragmentBinding binding;
+    private ManShoesViewModel mViewModel;
     private MyAdapterItemCategories myAdapterItemCategories;
-    public static WomanBeautyFragment newInstance() {
-        return new WomanBeautyFragment();
+    public static ManShoesFragment newInstance() {
+        return new ManShoesFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,
-                R.layout.woman_beauty_fragment, container, false);
+        binding = DataBindingUtil.inflate(inflater,R.layout.man_fragment, container, false);
         View root = binding.getRoot();
         return root;
     }
@@ -41,13 +40,13 @@ public class WomanBeautyFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(WomanBeautyViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ManShoesViewModel.class);
         mViewModel.getDataByRxJava();
-        binding.recyclerViewBeautyWoman.setNestedScrollingEnabled(true);
-        binding.recyclerViewBeautyWoman.setHasFixedSize(true);
-        binding.recyclerViewBeautyWoman.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        binding.recyclerViewShoesMan.setNestedScrollingEnabled(true);
+        binding.recyclerViewShoesMan.setHasFixedSize(true);
+        binding.recyclerViewShoesMan.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         myAdapterItemCategories = new MyAdapterItemCategories();
-        binding.recyclerViewBeautyWoman.setAdapter(myAdapterItemCategories);
+        binding.recyclerViewShoesMan.setAdapter(myAdapterItemCategories);
         mViewModel.mutableLiveData.observe(getActivity(),
                 itemCategories -> myAdapterItemCategories.setList(itemCategories));
     }

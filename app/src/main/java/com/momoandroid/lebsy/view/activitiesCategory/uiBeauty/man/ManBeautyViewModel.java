@@ -45,7 +45,7 @@ public class ManBeautyViewModel extends ViewModel {
 
             @Override
             public void onError(Throwable e) {
-                Log.d(TAG, "Home Error: " + e);
+                Log.d(TAG, "Beauty Error: " + e);
             }
 
             @Override
@@ -58,7 +58,7 @@ public class ManBeautyViewModel extends ViewModel {
 
     public MutableLiveData<List<ItemCategories>> getDataFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Beauty");
+        DatabaseReference myRef = database.getReference("Beauty").child("Man");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

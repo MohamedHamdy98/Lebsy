@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.momoandroid.lebsy.R;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.childrenShoes.ChildrenFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.manShoes.ManShoesFragment;
-import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.womanShoes.WomanShoesFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.childrenShoe.ChildrenFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.manShoe.ManShoesFragment;
+import com.momoandroid.lebsy.view.activitiesCategory.uiShoes.womanShoe.WomanShoesFragment;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -30,10 +30,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new ManShoesFragment();
+                fragment = new ChildrenFragment();
                 break;
             case 1:
-                fragment = new ChildrenFragment();
+                fragment =  new ManShoesFragment();
                 break;
             case 2:
                 fragment = new WomanShoesFragment();

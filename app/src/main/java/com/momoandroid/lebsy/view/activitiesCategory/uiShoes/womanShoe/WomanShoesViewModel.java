@@ -1,4 +1,4 @@
-package com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.woman;
+package com.momoandroid.lebsy.view.activitiesCategory.uiShoes.womanShoe;
 
 import android.util.Log;
 
@@ -24,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static android.content.ContentValues.TAG;
 
-public class WomanBeautyViewModel extends ViewModel {
+public class WomanShoesViewModel extends ViewModel {
     public MutableLiveData<List<ItemCategories>> mutableLiveData = new MutableLiveData<>();
     private List<ItemCategories> categoriesArrayList = new ArrayList<>();
 
@@ -58,7 +58,7 @@ public class WomanBeautyViewModel extends ViewModel {
 
     public MutableLiveData<List<ItemCategories>> getDataFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Beauty").child("Woman");
+        DatabaseReference myRef = database.getReference("Shoes").child("Woman");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,6 +71,7 @@ public class WomanBeautyViewModel extends ViewModel {
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

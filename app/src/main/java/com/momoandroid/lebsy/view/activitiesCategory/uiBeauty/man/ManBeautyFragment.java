@@ -36,11 +36,8 @@ public class ManBeautyFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.man_beauty_fragment, container, false);
         View root = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(ManBeautyViewModel.class);
-
-
-
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("Beauty");
+//        DatabaseReference myRef = database.getReference("Beauty").child("Man");
 //        ItemCategories Gym = new ItemCategories("Gym Shoes","default" ,"80$");
 //        ItemCategories Boot = new ItemCategories("Boot", "default" ,"100$");
 //        ItemCategories Chair = new ItemCategories("Chair", "default" ,"400$");
@@ -53,8 +50,6 @@ public class ManBeautyFragment extends Fragment {
 //        myRef.child("T-Shirt1").setValue(Shirt1);
 //        myRef.child("T-Shirt2").setValue(Shirt2);
 //        myRef.child("T-Shirt3").setValue(Shirt3);
-
-
         mViewModel.getDataByRxJava();
         binding.recyclerViewBeautyMan.setNestedScrollingEnabled(true);
         binding.recyclerViewBeautyMan.setHasFixedSize(true);

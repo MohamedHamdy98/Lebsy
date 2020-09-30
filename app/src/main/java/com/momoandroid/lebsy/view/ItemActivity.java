@@ -35,7 +35,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         binding.textViewPriceItemCategories.setText(getIntent().getExtras().getString("price"));
         itemCategories = new ItemCategories();
         binding.setItem(itemCategories);
-        handlerItemActivity = new HandlerItemActivity(binding.editTextSizeItemActivity, binding.editTextNumberItemActivity);
+        handlerItemActivity = new HandlerItemActivity(binding.editTextSizeItemActivity,
+                binding.editTextNumberItemActivity);
         binding.setOnClick(handlerItemActivity);
         binding.imageViewBlackColor.setOnClickListener(this::onClick);
         binding.imageViewUseblackColor.setOnClickListener(this::onClick);

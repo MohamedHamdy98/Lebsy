@@ -26,8 +26,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_margin="20dp"
-                android:src="@{item.imageItem, default = @drawable/mee}"
-                app:srcCompat="@drawable/mee" />
+                android:src="@{item.imageItem}"/>
             <TextView
                 android:id="@+id/textView_nameItemCategories"
                 android:layout_width="match_parent"

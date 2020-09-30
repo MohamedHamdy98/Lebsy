@@ -45,7 +45,7 @@ public class MyAdapterItemCategories extends RecyclerView.Adapter<MyAdapterItemC
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ItemCategories itemCategories = modelArrayList.get(position);
         if (itemCategories.getImageItem().equals("default")) {
-            holder.binding.imageViewShoesItemCategories.setImageResource(R.drawable.mee);
+            holder.binding.imageViewShoesItemCategories.setImageResource(R.drawable.ic_furniture);
         } else {
             Picasso.get().load(itemCategories.getImageItem()).into(holder.binding.imageViewShoesItemCategories);
         }
