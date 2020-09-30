@@ -28,7 +28,7 @@ public class HomeViewModel extends ViewModel {
 
     public void getDataByRxJava() {
         Observable<List<ItemCategories>> observable = Observable.fromArray(categoriesArrayList)
-                .subscribeOn(Schedulers.computation())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
         Observer<List<ItemCategories>> observer = new Observer<List<ItemCategories>>() {
             @Override
