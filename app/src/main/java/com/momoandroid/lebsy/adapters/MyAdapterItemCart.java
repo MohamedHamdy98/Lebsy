@@ -52,7 +52,28 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
             binding = itemView;
         }
     }
+
+    public class HandlerItemCart {
+        TextView textViewNumber;
+
+        public HandlerItemCart(TextView textViewNumber) {
+            this.textViewNumber = textViewNumber;
+        }
+        public void addNumber(View view){
+            int number = Integer.parseInt(textViewNumber.getText().toString());
+            textViewNumber.setText(number+1);
+
+        }
+        public void deleteNumber(View view){
+            int number = Integer.parseInt(textViewNumber.getText().toString());
+            textViewNumber.setText(number-1);
+        }
+
+
+    }
 }
+
+
 
 
 
