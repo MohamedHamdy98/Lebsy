@@ -8,28 +8,40 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.momoandroid.lebsy.R;
+import com.momoandroid.lebsy.adapters.MyAdapterItemCart;
+import com.momoandroid.lebsy.databinding.FragmentCartBinding;
+import com.momoandroid.lebsy.models.ItemCart;
+
+import java.util.List;
 
 
 public class CartFragment extends Fragment {
 
+    private FragmentCartBinding binding;
     private CartViewModel cartViewModel;
+    private MyAdapterItemCart myAdapterItemCart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         cartViewModel =
                 ViewModelProviders.of(this).get(CartViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_cart, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        cartViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_cart, container, false);
+        View root = binding.getRoot();
+        binding.recyclerViewItemCart.setNestedScrollingEnabled(true);
+        binding.recyclerViewItemCart.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.recyclerViewItemCart.setHasFixedSize(true);
+        myAdapterItemCart = new MyAdapterItemCart();
+        cartViewModel.getDataByRxJava();
+        cartViewModel.mutableLiveData.observe(getActivity(), itemCarts -> {
+            myAdapterItemCart.setList(itemCarts);
+            binding.recyclerViewItemCart.setAdapter(myAdapterItemCart);
         });
         return root;
     }

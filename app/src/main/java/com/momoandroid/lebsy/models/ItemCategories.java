@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.momoandroid.lebsy.BR;
 
@@ -33,6 +34,7 @@ public class ItemCategories extends BaseObservable {
         this.imageItem = imageItem;
         this.priceItem = priceItem;
     }
+
     @Bindable
     public String getColorItem() {
         return colorItem;

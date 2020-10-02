@@ -21,36 +21,36 @@ import com.momoandroid.lebsy.view.activitiesCategory.uiBeauty.ui.mainBeauty.Sect
 import com.momoandroid.lebsy.view.uiBottomNavigation.cart.CartFragment;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ItemActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityItemBinding binding;
-    private HandlerItemActivity handlerItemActivity;
-    private ItemCategories itemCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_item);
-        binding.textViewNameItemCategories.setText(getIntent().getExtras().getString("name"));
+        binding.textViewNameItemCategories.setText(Objects.requireNonNull(getIntent().getExtras()).getString("name"));
         binding.textViewPriceItemCategories.setText(getIntent().getExtras().getString("price"));
-        itemCategories = new ItemCategories();
+        ItemCategories itemCategories = new ItemCategories();
         binding.setItem(itemCategories);
-        handlerItemActivity = new HandlerItemActivity(binding.editTextSizeItemActivity,
+        HandlerItemActivity handlerItemActivity = new HandlerItemActivity(binding.editTextSizeItemActivity,
                 binding.editTextNumberItemActivity);
         binding.setOnClick(handlerItemActivity);
-        binding.imageViewBlackColor.setOnClickListener(this::onClick);
-        binding.imageViewUseblackColor.setOnClickListener(this::onClick);
-        binding.imageViewGrayColor.setOnClickListener(this::onClick);
-        binding.imageViewUsegrayColor.setOnClickListener(this::onClick);
-        binding.imageViewWhiteColor.setOnClickListener(this::onClick);
-        binding.imageViewUsewhiteColor.setOnClickListener(this::onClick);
-        binding.imageViewPinkColor.setOnClickListener(this::onClick);
-        binding.imageViewUsepinkColor.setOnClickListener(this::onClick);
-        binding.imageViewOrangeColor.setOnClickListener(this::onClick);
-        binding.imageViewUseorangeColor.setOnClickListener(this::onClick);
+        binding.imageViewBlackColor.setOnClickListener(this);
+        binding.imageViewUseblackColor.setOnClickListener(this);
+        binding.imageViewGrayColor.setOnClickListener(this);
+        binding.imageViewUsegrayColor.setOnClickListener(this);
+        binding.imageViewWhiteColor.setOnClickListener(this);
+        binding.imageViewUsewhiteColor.setOnClickListener(this);
+        binding.imageViewPinkColor.setOnClickListener(this);
+        binding.imageViewUsepinkColor.setOnClickListener(this);
+        binding.imageViewOrangeColor.setOnClickListener(this);
+        binding.imageViewUseorangeColor.setOnClickListener(this);
         gotoBack();
     }
-    private void gotoBack(){
+
+    private void gotoBack() {
         binding.iconBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,8 +61,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        String name = getIntent().getExtras().getString("name");
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String name = Objects.requireNonNull(getIntent().getExtras()).getString("name");
+        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
         HashMap<String, Object> hashMap = new HashMap<>();
         switch (v.getId()) {
@@ -79,14 +79,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String black = "black";
                 hashMap.put("ColorOfItem", black);
+                assert name != null;
                 databaseReference.child(uid).child(name).updateChildren(hashMap);
                 break;
             case R.id.imageView_useblack_color:
                 binding.imageViewBlackColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseblackColor.setVisibility(View.GONE);
-                String notblack = "";
-                hashMap.put("ColorOfItem", notblack);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             case R.id.imageView_orange_color:
                 binding.imageViewOrangeColor.setVisibility(View.GONE);
@@ -101,14 +101,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String orange = "orange";
                 hashMap.put("ColorOfItem", orange);
+                assert name != null;
                 databaseReference.child(uid).child(name).updateChildren(hashMap);
                 break;
             case R.id.imageView_useorange_color:
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseorangeColor.setVisibility(View.GONE);
-                String notorange = "";
-                hashMap.put("ColorOfItem", notorange);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             case R.id.imageView_white_color:
                 binding.imageViewWhiteColor.setVisibility(View.GONE);
@@ -123,14 +123,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String white = "white";
                 hashMap.put("ColorOfItem", white);
+                assert name != null;
                 databaseReference.child(uid).child(name).updateChildren(hashMap);
                 break;
             case R.id.imageView_usewhite_color:
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsewhiteColor.setVisibility(View.GONE);
-                String notwhite = "";
-                hashMap.put("ColorOfItem", notwhite);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             case R.id.imageView_pink_color:
                 binding.imageViewPinkColor.setVisibility(View.GONE);
@@ -145,14 +145,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String pink = "pink";
                 hashMap.put("ColorOfItem", pink);
+                assert name != null;
                 databaseReference.child(uid).child(name).updateChildren(hashMap);
                 break;
             case R.id.imageView_usepink_color:
                 binding.imageViewPinkColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsepinkColor.setVisibility(View.GONE);
-                String notpink = "";
-                hashMap.put("ColorOfItem", notpink);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             case R.id.imageView_gray_color:
                 binding.imageViewGrayColor.setVisibility(View.GONE);
@@ -165,16 +165,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewPinkColor.setVisibility(View.VISIBLE);
-                String gray = "gray";
-                hashMap.put("ColorOfItem", gray);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             case R.id.imageView_usegray_color:
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsegrayColor.setVisibility(View.GONE);
-                String notgray = "";
-                hashMap.put("ColorOfItem", notgray);
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                assert name != null;
+                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
                 break;
             default:
                 break;
