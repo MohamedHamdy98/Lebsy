@@ -36,28 +36,28 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new CoatsFragment();
+                fragment = new TeShirtsFragment();
                 break;
             case 1:
-                fragment = new JacketsFragment();
+                fragment = new ShirtsFragment();
                 break;
             case 2:
                 fragment = new PantsFragment();
                 break;
             case 3:
-                fragment = new ShirtsFragment();
-                break;
-            case 4:
                 fragment = new SocksFragment();
                 break;
+            case 4:
+                fragment = new UnderWareFragment();
+                break;
             case 5:
-                fragment = new SweatersFragment();
+                fragment = new JacketsFragment();
                 break;
             case 6:
-                fragment = new TeShirtsFragment();
+                fragment = new CoatsFragment();
                 break;
             case 7:
-                fragment = new UnderWareFragment();
+                fragment = new SweatersFragment();
                 break;
         }
         return fragment;
