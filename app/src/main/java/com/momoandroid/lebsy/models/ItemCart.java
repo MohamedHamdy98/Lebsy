@@ -3,6 +3,7 @@ package com.momoandroid.lebsy.models;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+
 import com.momoandroid.lebsy.BR;
 
 

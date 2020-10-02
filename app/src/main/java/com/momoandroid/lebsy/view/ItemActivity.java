@@ -63,7 +63,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String name = Objects.requireNonNull(getIntent().getExtras()).getString("name");
         String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                .getReference("Cart").child(uid).child("Order").child(name);
         HashMap<String, Object> hashMap = new HashMap<>();
         switch (v.getId()) {
             case R.id.imageView_black_color:
@@ -78,15 +79,13 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String black = "black";
-                hashMap.put("ColorOfItem", black);
-                assert name != null;
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                hashMap.put("colorItem", black);
+                databaseReference.updateChildren(hashMap);
                 break;
             case R.id.imageView_useblack_color:
                 binding.imageViewBlackColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseblackColor.setVisibility(View.GONE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                databaseReference.child("colorItem").removeValue();
                 break;
             case R.id.imageView_orange_color:
                 binding.imageViewOrangeColor.setVisibility(View.GONE);
@@ -100,15 +99,13 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String orange = "orange";
-                hashMap.put("ColorOfItem", orange);
-                assert name != null;
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                hashMap.put("colorItem", orange);
+                databaseReference.updateChildren(hashMap);
                 break;
             case R.id.imageView_useorange_color:
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewUseorangeColor.setVisibility(View.GONE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                databaseReference.child("colorItem").removeValue();
                 break;
             case R.id.imageView_white_color:
                 binding.imageViewWhiteColor.setVisibility(View.GONE);
@@ -122,15 +119,13 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String white = "white";
-                hashMap.put("ColorOfItem", white);
-                assert name != null;
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                hashMap.put("colorItem", white);
+                databaseReference.updateChildren(hashMap);
                 break;
             case R.id.imageView_usewhite_color:
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsewhiteColor.setVisibility(View.GONE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                databaseReference.child("colorItem").removeValue();
                 break;
             case R.id.imageView_pink_color:
                 binding.imageViewPinkColor.setVisibility(View.GONE);
@@ -144,15 +139,13 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 String pink = "pink";
-                hashMap.put("ColorOfItem", pink);
-                assert name != null;
-                databaseReference.child(uid).child(name).updateChildren(hashMap);
+                hashMap.put("colorItem", pink);
+                databaseReference.updateChildren(hashMap);
                 break;
             case R.id.imageView_usepink_color:
                 binding.imageViewPinkColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsepinkColor.setVisibility(View.GONE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                databaseReference.child("colorItem").removeValue();
                 break;
             case R.id.imageView_gray_color:
                 binding.imageViewGrayColor.setVisibility(View.GONE);
@@ -165,14 +158,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 binding.imageViewWhiteColor.setVisibility(View.VISIBLE);
                 binding.imageViewOrangeColor.setVisibility(View.VISIBLE);
                 binding.imageViewPinkColor.setVisibility(View.VISIBLE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                String gray = "gray";
+                hashMap.put("colorItem", gray);
+                databaseReference.updateChildren(hashMap);
                 break;
             case R.id.imageView_usegray_color:
                 binding.imageViewGrayColor.setVisibility(View.VISIBLE);
                 binding.imageViewUsegrayColor.setVisibility(View.GONE);
-                assert name != null;
-                databaseReference.child(uid).child(name).child("ColorOfItem").removeValue();
+                databaseReference.child("colorItem").removeValue();
                 break;
             default:
                 break;
@@ -193,13 +186,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             String size = editText_size.getText().toString();
             String number = editText_number.getText().toString();
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
+            DatabaseReference databaseReference = FirebaseDatabase.
+                    getInstance().getReference("Cart").child(uid).child("Order").child(name);
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("SizeOfItem", size);
-            hashMap.put("NumberOfItem", number);
-            hashMap.put("NameOfItem", name);
-            hashMap.put("PriceOfItem", price);
-            databaseReference.child(uid).child(name).updateChildren(hashMap);
+            hashMap.put("sizeItem", size);
+            hashMap.put("numberItem", number);
+            hashMap.put("nameItem", name);
+            hashMap.put("priceItem", price);
+            databaseReference.updateChildren(hashMap);
         }
     }
 }

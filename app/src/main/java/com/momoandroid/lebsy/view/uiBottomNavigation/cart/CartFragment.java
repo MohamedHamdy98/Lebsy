@@ -32,17 +32,16 @@ public class CartFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         cartViewModel =
                 ViewModelProviders.of(this).get(CartViewModel.class);
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_cart, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false);
         View root = binding.getRoot();
-        binding.recyclerViewItemCart.setNestedScrollingEnabled(true);
-        binding.recyclerViewItemCart.setLayoutManager(new LinearLayoutManager(getActivity()));
-        binding.recyclerViewItemCart.setHasFixedSize(true);
-        myAdapterItemCart = new MyAdapterItemCart();
+
         cartViewModel.getDataByRxJava();
-        cartViewModel.mutableLiveData.observe(getActivity(), itemCarts -> {
-            myAdapterItemCart.setList(itemCarts);
-            binding.recyclerViewItemCart.setAdapter(myAdapterItemCart);
-        });
+        binding.recyclerViewItemCart.setNestedScrollingEnabled(true);
+        binding.recyclerViewItemCart.setHasFixedSize(true);
+        binding.recyclerViewItemCart.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myAdapterItemCart = new MyAdapterItemCart();
+        binding.recyclerViewItemCart.setAdapter(myAdapterItemCart);
+        cartViewModel.mutableLiveData.observe(getActivity(), itemCarts -> myAdapterItemCart.setList(itemCarts));
         return root;
     }
 }

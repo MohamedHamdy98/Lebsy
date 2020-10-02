@@ -1,11 +1,8 @@
 package com.momoandroid.lebsy.models;
 
-import android.graphics.drawable.Drawable;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.momoandroid.lebsy.BR;
 
 public class ItemCategories extends BaseObservable {

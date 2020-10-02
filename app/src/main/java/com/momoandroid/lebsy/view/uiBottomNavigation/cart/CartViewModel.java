@@ -62,7 +62,7 @@ public class CartViewModel extends ViewModel {
     public MutableLiveData<List<ItemCart>> getDataFromFirebase() {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Cart").child(uid);
+        DatabaseReference myRef = database.getReference("Cart").child(uid).child("Order");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

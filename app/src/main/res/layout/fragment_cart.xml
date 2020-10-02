@@ -11,12 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#F5F6F8"
         tools:context=".view.uiBottomNavigation.cart.CartFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_itemCart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#F5F6F8"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="40dp"/>
     </LinearLayout>
