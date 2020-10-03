@@ -27,6 +27,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.content.ContentValues.TAG;
+import static androidx.databinding.library.baseAdapters.BR.numberItem;
+import static androidx.databinding.library.baseAdapters.BR.priceItem;
 
 public class CartViewModel extends ViewModel {
     public MutableLiveData<List<ItemCart>> mutableLiveData = new MutableLiveData<>();
@@ -88,23 +90,20 @@ public class CartViewModel extends ViewModel {
 
     // To calculate total price and set it in database..
     public void setTotalPrice() {
-        ArrayList<ItemCart> itemCarts = new ArrayList<>();
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("Cart").child(uid).child("Order");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                itemCarts.clear();
+                 int sum = 0;
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String priceItem = dataSnapshot.child("priceItem").getValue(String.class);
-                    String numberItem = dataSnapshot.child("numberItem").getValue(String.class);
-                    DatabaseReference myRef = database.getReference("Cart").child(uid).child("TotalPrice");
-                    int oneType;
-                    int overTotal = 0;
-                    oneType = ((Integer.parseInt(String.valueOf(priceItem)))) * ((Integer.parseInt(String.valueOf(numberItem))));
-                    overTotal = overTotal + oneType;
-                    myRef.setValue(String.valueOf(overTotal));
+                    ItemCart itemCart = dataSnapshot.getValue(ItemCart.class);
+                    DatabaseReference myRef = FirebaseDatabase.getInstance()
+                            .getReference("Cart").child(uid).child("TotalPrice");
+                    int total = Integer.parseInt(itemCart.getPriceItem());
+                    sum += total;
+                    myRef.setValue(String.valueOf(sum));
                 }
             }
 
@@ -115,6 +114,7 @@ public class CartViewModel extends ViewModel {
         });
 
     }
+
 
     public void getTotalPrice(TextView textView){
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();

@@ -34,6 +34,7 @@ public class CartFragment extends Fragment {
     private FragmentCartBinding binding;
     private CartViewModel cartViewModel;
     private MyAdapterItemCart myAdapterItemCart;
+    private List<ItemCart> itemCartArrayList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,16 +42,29 @@ public class CartFragment extends Fragment {
                 ViewModelProviders.of(this).get(CartViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false);
         View root = binding.getRoot();
-        cartViewModel.setTotalPrice();
-        cartViewModel.getTotalPrice(binding.textViewTotalPrice);
+
         cartViewModel.getDataByRxJava();
         binding.recyclerViewItemCart.setNestedScrollingEnabled(true);
         binding.recyclerViewItemCart.setHasFixedSize(true);
         binding.recyclerViewItemCart.setLayoutManager(new LinearLayoutManager(getActivity()));
-        myAdapterItemCart = new MyAdapterItemCart();
+        myAdapterItemCart = new MyAdapterItemCart(itemCartArrayList,getActivity());
         binding.recyclerViewItemCart.setAdapter(myAdapterItemCart);
         cartViewModel.mutableLiveData.observe(getActivity(), itemCarts -> myAdapterItemCart.setList(itemCarts));
+        cartViewModel.setTotalPrice();
+        cartViewModel.getTotalPrice(binding.textViewTotalPrice);
         return root;
     }
 
+    public void test(TextView textView) {
+        int total = 0;
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference;
+        for (int i = 0; i < itemCartArrayList.size(); i++) {
+            total = Integer.parseInt(total + itemCartArrayList.get(i).getPriceItem());
+            textView.setText(String.valueOf(total));
+            databaseReference = database.getReference("Cart").child(uid).child("TotalPrice");
+            databaseReference.setValue(String.valueOf(total));
+        }
+    }
 }

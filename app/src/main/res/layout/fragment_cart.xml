@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif"
                             android:gravity="start"
-                            android:text="89.57"
+                            android:text=""
                             android:textAlignment="textStart"
                             android:textColor="#515C6F"
                             android:textSize="18sp"

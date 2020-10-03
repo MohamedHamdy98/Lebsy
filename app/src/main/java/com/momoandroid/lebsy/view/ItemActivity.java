@@ -186,13 +186,16 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             String size = editText_size.getText().toString();
             String number = editText_number.getText().toString();
+            assert name != null;
             DatabaseReference databaseReference = FirebaseDatabase.
                     getInstance().getReference("Cart").child(uid).child("Order").child(name);
+            assert price != null;
+            int totalItemPrice = Integer.parseInt(price) * Integer.parseInt(number);
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("sizeItem", size);
             hashMap.put("numberItem", number);
             hashMap.put("nameItem", name);
-            hashMap.put("priceItem", price);
+            hashMap.put("priceItem", String.valueOf(totalItemPrice));
             databaseReference.updateChildren(hashMap);
         }
     }

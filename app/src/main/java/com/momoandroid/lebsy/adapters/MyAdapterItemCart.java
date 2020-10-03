@@ -1,5 +1,6 @@
 package com.momoandroid.lebsy.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.databinding.RecyclerViewItemCartBinding;
 import com.momoandroid.lebsy.models.ItemCart;
@@ -19,6 +26,12 @@ import java.util.List;
 
 public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.ViewHolder> {
     private List<ItemCart> modelArrayList = new ArrayList<>();
+    Context context;
+
+    public MyAdapterItemCart(List<ItemCart> modelArrayList, Context context) {
+        this.modelArrayList = modelArrayList;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -54,6 +67,7 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
         public ViewHolder(@NonNull RecyclerViewItemCartBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
+
         }
     }
 
@@ -78,8 +92,35 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
             }
 
         }
+        // To calculate total price and set it in database..
+        public void setTotalPrice() {
+            ArrayList<ItemCart> itemCarts = new ArrayList<>();
+            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference databaseReference = database.getReference("Cart").child(uid).child("Order");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    itemCarts.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        String priceItem = dataSnapshot.child("priceItem").getValue(String.class);
+                        String numberItem = dataSnapshot.child("numberItem").getValue(String.class);
+                        DatabaseReference myRef = database.getReference("Cart").child(uid).child("TotalPrice");
+                        int oneType;
+                        int overTotal = 0;
+                        oneType = ((Integer.parseInt(String.valueOf(priceItem)))) * ((Integer.parseInt(String.valueOf(numberItem))));
+                        overTotal = overTotal + oneType;
+                        myRef.setValue(String.valueOf(overTotal));
+                    }
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
+                }
+            });
+
+        }
     }
 }
 
