@@ -101,7 +101,7 @@ public class CartViewModel extends ViewModel {
                     ItemCart itemCart = dataSnapshot.getValue(ItemCart.class);
                     DatabaseReference myRef = FirebaseDatabase.getInstance()
                             .getReference("Cart").child(uid).child("TotalPrice");
-                    int total = Integer.parseInt(itemCart.getPriceItem());
+                    int total = Integer.parseInt(itemCart.getPriceItem()) * Integer.parseInt(itemCart.getNumberItem());
                     sum += total;
                     myRef.setValue(String.valueOf(sum));
                 }

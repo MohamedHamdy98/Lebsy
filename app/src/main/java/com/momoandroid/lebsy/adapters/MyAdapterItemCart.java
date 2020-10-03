@@ -22,6 +22,7 @@ import com.momoandroid.lebsy.databinding.RecyclerViewItemCartBinding;
 import com.momoandroid.lebsy.models.ItemCart;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.ViewHolder> {
@@ -43,12 +44,33 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         ItemCart itemCart = modelArrayList.get(position);
-        HandlerItemCart handlerItemCart = new HandlerItemCart(holder.binding.numberItemButtonCart);
-        int price = ((Integer.parseInt(itemCart.getPriceItem()))) * ((Integer.parseInt(itemCart.getNumberItem())));
-        holder.binding.textViewPriceItemCart.setText(String.valueOf(price));
-        holder.binding.setOnClick(handlerItemCart);
         holder.binding.setItem(itemCart);
+
+        holder.binding.addItemButtonCart.setOnClickListener(v -> {
+            int number = Integer.parseInt(holder.binding.numberItemButtonCart.getText().toString());
+            holder.binding.numberItemButtonCart.setText(String.valueOf(number + 1));
+        });
+        holder.binding.addItemCart.setOnClickListener(v -> {
+            DatabaseReference databaseReference = FirebaseDatabase.
+                    getInstance().getReference("Cart").child(uid).child("Order").child(itemCart.getNameItem());
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("numberItem", holder.binding.numberItemButtonCart.getText().toString());
+            databaseReference.updateChildren(hashMap);
+        });
+        holder.binding.deleteItemButtonCart.setOnClickListener(v -> {
+            int number = Integer.parseInt(holder.binding.numberItemButtonCart.getText().toString());
+            if (number == 0) {
+            } else {
+                holder.binding.numberItemButtonCart.setText(String.valueOf(number - 1));
+//                DatabaseReference databaseReference = FirebaseDatabase.
+//                        getInstance().getReference("Cart").child(uid).child("Order").child(itemCart.getNameItem());
+//                HashMap<String, Object> hashMap = new HashMap<>();
+//                hashMap.put("numberItem", number);
+////                databaseReference.updateChildren(hashMap);
+            }
+        });
     }
 
     @Override
@@ -71,57 +93,6 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
         }
     }
 
-    public class HandlerItemCart {
-        TextView textViewNumber;
-
-        public HandlerItemCart(TextView textViewNumber) {
-            this.textViewNumber = textViewNumber;
-        }
-
-        public void addNumber(View view) {
-            int number = Integer.parseInt(textViewNumber.getText().toString());
-            textViewNumber.setText(String.valueOf(number + 1));
-
-        }
-
-        public void deleteNumber(View view) {
-            int number = Integer.parseInt(textViewNumber.getText().toString());
-            if (number == 0) {
-            } else {
-                textViewNumber.setText(String.valueOf(number - 1));
-            }
-
-        }
-        // To calculate total price and set it in database..
-        public void setTotalPrice() {
-            ArrayList<ItemCart> itemCarts = new ArrayList<>();
-            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference databaseReference = database.getReference("Cart").child(uid).child("Order");
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    itemCarts.clear();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        String priceItem = dataSnapshot.child("priceItem").getValue(String.class);
-                        String numberItem = dataSnapshot.child("numberItem").getValue(String.class);
-                        DatabaseReference myRef = database.getReference("Cart").child(uid).child("TotalPrice");
-                        int oneType;
-                        int overTotal = 0;
-                        oneType = ((Integer.parseInt(String.valueOf(priceItem)))) * ((Integer.parseInt(String.valueOf(numberItem))));
-                        overTotal = overTotal + oneType;
-                        myRef.setValue(String.valueOf(overTotal));
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-        }
-    }
 }
 
 

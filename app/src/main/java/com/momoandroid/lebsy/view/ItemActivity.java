@@ -195,7 +195,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             hashMap.put("sizeItem", size);
             hashMap.put("numberItem", number);
             hashMap.put("nameItem", name);
-            hashMap.put("priceItem", String.valueOf(totalItemPrice));
+            hashMap.put("priceItem", price);
             databaseReference.updateChildren(hashMap);
         }
     }
