@@ -1,6 +1,7 @@
 package com.momoandroid.lebsy.view.uiBottomNavigation.cart;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -72,6 +73,7 @@ public class CartViewModel extends ViewModel {
                         ItemCart itemCart = dataSnapshot.getValue(ItemCart.class);
                         itemCarts.add(itemCart);
                         mutableLiveData.setValue(itemCarts);
+
                     }
                 }
             }
@@ -83,4 +85,53 @@ public class CartViewModel extends ViewModel {
         });
         return mutableLiveData;
     }
+
+    // To calculate total price and set it in database..
+    public void setTotalPrice() {
+        ArrayList<ItemCart> itemCarts = new ArrayList<>();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference("Cart").child(uid).child("Order");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                itemCarts.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String priceItem = dataSnapshot.child("priceItem").getValue(String.class);
+                    String numberItem = dataSnapshot.child("numberItem").getValue(String.class);
+                    DatabaseReference myRef = database.getReference("Cart").child(uid).child("TotalPrice");
+                    int oneType;
+                    int overTotal = 0;
+                    oneType = ((Integer.parseInt(String.valueOf(priceItem)))) * ((Integer.parseInt(String.valueOf(numberItem))));
+                    overTotal = overTotal + oneType;
+                    myRef.setValue(String.valueOf(overTotal));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    public void getTotalPrice(TextView textView){
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference("Cart").child(uid);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String totalPrice = snapshot.child("TotalPrice").getValue(String.class);
+                textView.setText(totalPrice);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 }

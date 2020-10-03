@@ -7,6 +7,9 @@
         <variable
             name="item"
             type="com.momoandroid.lebsy.models.ItemCart" />
+        <variable
+            name="onClick"
+            type="com.momoandroid.lebsy.adapters.MyAdapterItemCart.HandlerItemCart" />
     </data>
 
     <LinearLayout
@@ -121,6 +124,7 @@
                         android:id="@+id/delete_item_button_cart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{onClick::deleteNumber}"
                         android:layout_alignParentStart="true"
                         android:src="@drawable/delete" />
 
@@ -143,6 +147,7 @@
                         android:id="@+id/add_item_button_cart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{onClick::addNumber}"
                         android:layout_toEndOf="@id/number_item_button_cart"
                         android:src="@drawable/add" />
                 </RelativeLayout>

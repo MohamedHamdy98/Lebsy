@@ -31,6 +31,10 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ItemCart itemCart = modelArrayList.get(position);
+        HandlerItemCart handlerItemCart = new HandlerItemCart(holder.binding.numberItemButtonCart);
+        int price = ((Integer.parseInt(itemCart.getPriceItem()))) * ((Integer.parseInt(itemCart.getNumberItem())));
+        holder.binding.textViewPriceItemCart.setText(String.valueOf(price));
+        holder.binding.setOnClick(handlerItemCart);
         holder.binding.setItem(itemCart);
     }
 
@@ -59,14 +63,20 @@ public class MyAdapterItemCart extends RecyclerView.Adapter<MyAdapterItemCart.Vi
         public HandlerItemCart(TextView textViewNumber) {
             this.textViewNumber = textViewNumber;
         }
-        public void addNumber(View view){
+
+        public void addNumber(View view) {
             int number = Integer.parseInt(textViewNumber.getText().toString());
-            textViewNumber.setText(number+1);
+            textViewNumber.setText(String.valueOf(number + 1));
 
         }
-        public void deleteNumber(View view){
+
+        public void deleteNumber(View view) {
             int number = Integer.parseInt(textViewNumber.getText().toString());
-            textViewNumber.setText(number-1);
+            if (number == 0) {
+            } else {
+                textViewNumber.setText(String.valueOf(number - 1));
+            }
+
         }
 
 

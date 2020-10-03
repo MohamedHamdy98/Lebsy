@@ -14,11 +14,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.momoandroid.lebsy.R;
 import com.momoandroid.lebsy.adapters.MyAdapterItemCart;
 import com.momoandroid.lebsy.databinding.FragmentCartBinding;
 import com.momoandroid.lebsy.models.ItemCart;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +41,8 @@ public class CartFragment extends Fragment {
                 ViewModelProviders.of(this).get(CartViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false);
         View root = binding.getRoot();
-
+        cartViewModel.setTotalPrice();
+        cartViewModel.getTotalPrice(binding.textViewTotalPrice);
         cartViewModel.getDataByRxJava();
         binding.recyclerViewItemCart.setNestedScrollingEnabled(true);
         binding.recyclerViewItemCart.setHasFixedSize(true);
@@ -44,4 +52,5 @@ public class CartFragment extends Fragment {
         cartViewModel.mutableLiveData.observe(getActivity(), itemCarts -> myAdapterItemCart.setList(itemCarts));
         return root;
     }
+
 }
